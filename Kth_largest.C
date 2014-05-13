@@ -37,7 +37,7 @@ int kth_smallest_element(int A[],int k,int size)
 {
   int c=1;
  
-  while (c<k)
+  while (c<k)//k-1 swap, so kth incident has kth largest elements.
   {
      cout<<"c is :"<<c<<endl; 
      int temp=A[0];
@@ -47,7 +47,7 @@ int kth_smallest_element(int A[],int k,int size)
      c=c+1;
      size=size-1;
   
-     min_heapify(A,0,size);
+     min_heapify(A,0,size);// O(k log n) only the swapped element is heapified 
   }
 
   return A[0]; 
@@ -81,7 +81,7 @@ int main()
 
      for(int i=n;i>=0;i--)
      {
-         min_heapify(B,i,n);
+         min_heapify(B,i,n);// O(n) since it runs from backward to heapify all elements
      }
 
      for(int i=0;i<n;i++)
@@ -90,7 +90,7 @@ int main()
      }
      cout<<endl;
      
-     cout<<"Kth smallest element in array is : "<<kth_smallest_element(B,7,n)<<endl;
+     cout<<"Kth smallest element in array is : "<<kth_smallest_element(B,7,n)<<endl; // O(n + k log n)
      
      for(int i=0;i<n;i++)
      {
