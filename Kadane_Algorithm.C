@@ -8,15 +8,17 @@ int R_sum_contigious(int A[],int index,int n,int sum)
 
   int max_val=0;
   
-  if (A[index] > 0) 
+  if (sum + A[index] > 0) 
   {
-    max_val=sum+A[index];  
+    max_val=sum+A[index];
+    return max(R_sum_contigious(A,index+1,n,max_val),R_sum_contigious(A,index+1,n,0));
   }
   else
   {
       max_val=sum;
+      return R_sum_contigious(A,index+1,n,0);
   }
-  return max(R_sum_contigious(A,index+1,n,max_val),R_sum_contigious(A,index+1,n,0));
+  
 }
 int D_sum_contigious(int A[],int n)
 {
@@ -41,7 +43,7 @@ int D_sum_contigious(int A[],int n)
 int main()
 {
   //int A[]={-2,-3,4,-1,-2,-1,5,-3,6};
-  int A[]={2,3,4,-1,-2};
+  int A[]={2,3,4,-1,-2,10};
   int n=sizeof(A)/sizeof(A[0]);
  
   cout<<"R max sum contigious subarray is : "<<R_sum_contigious(A,0,n,0)<<endl;
