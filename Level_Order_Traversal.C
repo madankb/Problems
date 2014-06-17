@@ -1,5 +1,6 @@
 #include<iostream>
 #include<stdio.h>
+#include<queue>
 using namespace std;
 struct node
 {
@@ -17,9 +18,9 @@ void insert(struct node** root,int key)
       (*root)->right=NULL;
    }
    else if (key < (*root)->key)
-       insert(&(*root)->left);
+       insert(&(*root)->left,key);
    else
-       insert(&(*root)->right);
+       insert(&(*root)->right,key);
 }
 void print_level_order(struct node* root)
 {
@@ -29,7 +30,7 @@ void print_level_order(struct node* root)
     queue<struct node*> q;
     q.push(root);
 
-    while (q != NULL)
+    while (!q.empty())
     {
          printf("%d ",q.front()->key);
 
@@ -47,7 +48,7 @@ int main()
 {
    struct node* root=NULL;
    insert(&root,10);
-   insert(&root,8)
+   insert(&root,8);
    insert(&root,9);
    insert(&root,7);
    insert(&root,12);
