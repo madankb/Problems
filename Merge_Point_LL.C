@@ -34,7 +34,7 @@ int Get_Count(struct node* list)
 
   return count;
 }
-bool find_merge_point(struct node* first,struct node* second)
+bool find_merge_point(struct node* first,struct node* second)//O(m+n)
 {
   if (first == NULL || second == NULL)
       return false;
