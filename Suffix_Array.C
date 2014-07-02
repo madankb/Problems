@@ -60,7 +60,7 @@ int binary_search(char *pat,char* txt,int* sfx_ary,int n)
 }		
 int main()
 {
-	char txt[]="banana";
+	char txt[]="amazon";
 	int n=strlen(txt);
 	int *R=build_suffix(txt,n);//Suffix array is sorted array of suffix of the string with index.
 	
@@ -72,7 +72,7 @@ int main()
 	
 	cout<<"String comp :"<<strncmp("banana","ban",3)<<endl;
 	
-	char pat[]="bana";
+	char pat[]="zon";
 	printf("Patter found at the index [%d] \n",binary_search(pat,txt,R,n));	
 	
 }	
