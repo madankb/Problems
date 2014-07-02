@@ -1,6 +1,6 @@
 #include<iostream>
 #include<stdio.h>
-#include<string>
+#include<string.h>
 #include<algorithm>
 using namespace std;
 struct suffix
