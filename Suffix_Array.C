@@ -14,16 +14,6 @@ int comp(struct suffix x,struct suffix y)
 }		
 int* build_suffix(char *txt,int n)
 {
-	string *s=new string[n];
-	
-	for (int i=0;i<n;i++)
-	{
-		s[i]=txt+i;
-	}
-	
-	sort(s,s+n);
-	
-	
 	struct suffix sfx[n];
 	for (int i=0;i<n;i++)
 	{
@@ -74,12 +64,6 @@ int main()
 	int n=strlen(txt);
 	int *R=build_suffix(txt,n);//Suffix array is sorted array of suffix of the string with index.
 	
-	cout<<"Char is : "<<txt+3<<endl;
-	
-	int a[3]={1,2,3};
-	
-	cout<<"Int is :"<<a+2<<endl;
-	
 	for (int i=0;i<n;i++)
 	{
 		printf("%d ",R[i]);
@@ -90,7 +74,5 @@ int main()
 	
 	char pat[]="bana";
 	printf("Patter found at the index [%d] \n",binary_search(pat,txt,R,n));	
-	
-	cout<<(3+4)/2<<endl;
 	
 }	
