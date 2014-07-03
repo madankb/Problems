@@ -5,14 +5,21 @@
 using namespace std;
 struct suffix
 {
-	int index;
+    int index;
 	char *a;
 };
 int comp(struct suffix x,struct suffix y)
 {
-	return strcmp(x.a,y.a)<0?1:0;
-}		
-int* build_suffix(char *txt,int n)
+	return strcmp(x.a,y.a)<0?1:0;//bool value needed for sort
+}
+int cmp(const void *x,const void *y)//O(n) for strcmp of length n
+{
+    const struct suffix *c=(struct suffix *)x;
+    const struct suffix *d=(struct suffix *)y;
+    
+    return strcmp(c->a,d->a);//-ve c before d,+ve d before b for qsort 
+}
+int* build_suffix(char *txt,int n)//O(n^2.log n) strcmp + sort
 {
 	struct suffix sfx[n];
 	for (int i=0;i<n;i++)
@@ -21,8 +28,10 @@ int* build_suffix(char *txt,int n)
 		sfx[i].a=txt+i;
 	}
 	
-	sort(sfx,sfx+n,comp);
+	sort(sfx,sfx+n,comp);//Worst case O(n.log2 n)
 	
+    //qsort(sfx,n,sizeof(struct suffix),cmp); //Worst case O(n^2)
+    
 	int *R=new int[n];
 	
 	for (int i=0;i<n;i++)
