@@ -40,7 +40,6 @@ void print_anagrams(char* list[],int size)
   for (int i=0;i<size;i++)
   {
     dup->array[i].index=i;
-    //dup->array[i].str=list[i];
     dup->array[i].str=new char[strlen(list[i])+1];
     strcpy(dup->array[i].str,list[i]);
   }
@@ -63,19 +62,6 @@ int main()
 {
    char* list[]={"cat","dog","tac","god","act"};
    int size=sizeof(list)/sizeof(list[0]);
-   
-   cout<<"Size is:"<<sizeof(list)<<endl;
-   
-   char B[6]="hello";
-
-   char *A=new char[6];
-   strcpy(A,B);
-   cout<<"sizeof(A) :"<<strlen(A)<<endl;
-   
-   //for (int i=0;i<strlen(A);i++)
-   qsort(A,strlen(A),sizeof(char),compChar);
-
-   cout<<"A now is : "<<A<<endl;
    
    print_anagrams(list,size);
    
