@@ -3,7 +3,7 @@
 #define R 4
 #define C 4
 using namespace std;
-bool search(int A[R][C],int s,int e,int t)
+bool search(int A[R][C],int s,int e,int t) //O(R+C)
 {
   if (s >= R || s < 0 || e >= C || e < 0)
      return false;
