@@ -55,8 +55,13 @@ int find_level(struct node* root,struct node* a)
 }
 bool Is_Cousin(struct node* root,struct node* a,struct node* b)
 {
-  cout<<find_level(root,a)<<endl;
-  cout<<find_level(root,b)<<endl;
+  int l=find_level(root,a);
+  int r=find_level(root,b);
+
+  if (l != r)
+     return false;
+
+ 
 }
 int main()
 {
