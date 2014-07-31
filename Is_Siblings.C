@@ -53,15 +53,29 @@ int find_level(struct node* root,struct node* a)
     return 1+l;
 
 }
+bool Is_Sibling(struct node* root,struct node* a,struct node* b)
+{
+  if (root == NULL)
+    return false;
+
+  return ((root->left == a && root->right == b) || (root->left == b && root->right == a) || Is_Sibling(root->left,a,b) || Is_Sibling(root->right,a,b));
+}
 bool Is_Cousin(struct node* root,struct node* a,struct node* b)
 {
+
+  if (root == NULL || a	== NULL|| b ==	NULL)
+    return false;
+
   int l=find_level(root,a);
   int r=find_level(root,b);
 
   if (l != r)
-     return false;
+    return false;
 
- 
+  if (!Is_Sibling(root,a,b))
+    return true;
+
+  return false;
 }
 int main()
 {
